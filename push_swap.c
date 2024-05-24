@@ -6,7 +6,7 @@
 /*   By: spawar <spawar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 15:18:06 by spawar            #+#    #+#             */
-/*   Updated: 2024/05/19 18:31:46 by spawar           ###   ########.fr       */
+/*   Updated: 2024/05/24 15:59:14 by spawar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 #include <string.h>
 #include "libft.h"
 
-int	duplicates(struct s_node *head)
+int	duplicates(t_node *head)
 {
-	struct s_node	*temp;
-	struct s_node	*temp1;
-	int				count;
+	t_node	*temp;
+	t_node	*temp1;
+	int		count;
 
 	temp = head;
 	while (temp != NULL)
@@ -53,23 +53,23 @@ int	ft_isspace(char *s)
 	return (0);
 }
 
-struct s_node	*ft_linker(char *s, struct s_node *head)
+t_node	*ft_linker(char *s, t_node *head)
 {
-	struct s_node	*current;
+	t_node	*current;
 
-	current = malloc(sizeof(struct s_node));
+	current = malloc(sizeof(t_node));
 	current->data = ft_atoi(s);
 	current->next = head;
 	head = current;
 	return (head);
 }
 
-struct s_node	*ft_checker(char **s, int argc)
+t_node	*ft_checker(char **s, int argc)
 {
-	int				i;
-	int				j;
-	struct s_node	*head;
-	char			**tmp;
+	int		i;
+	int		j;
+	t_node	*head;
+	char	**tmp;
 
 	i = argc;
 	head = NULL;
@@ -97,8 +97,8 @@ struct s_node	*ft_checker(char **s, int argc)
 
 int	main(int argc, char **argv)
 {
-	struct s_node	*a;
-	struct s_node	*b;
+	t_node	*a;
+	t_node	*b;
 	int				i;
 	int				j;
 
@@ -120,10 +120,10 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (printf("Error"), 0);
 	//========TESTING============//
+	push_a(a, &b);
 	//push_a(a, &b);
-	//push_a(a, &b);
-	swap_a(a);
-	//b = push_b(&a, b);
+	//swap_b(b);
+	//push_b(&a, &b);
 	//b = push_b(&a, b);
 	//push_a(a, &b);
 	printf("a:\t");
@@ -138,7 +138,7 @@ int	main(int argc, char **argv)
 		printf("%i\t", b->data);
 		b = b->next;
 	}
-	//=======TESTINMG=========//
+	//=======TESTING=========//
 	printf("\n");
 	return (0);
 }

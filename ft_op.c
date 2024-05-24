@@ -6,17 +6,17 @@
 /*   By: spawar <spawar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 13:50:09 by spawar            #+#    #+#             */
-/*   Updated: 2024/05/19 18:29:52 by spawar           ###   ########.fr       */
+/*   Updated: 2024/05/24 15:54:23 by spawar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	push_a(struct s_node *a, struct s_node **b)
+int	push_a(t_node *a, t_node **b)
 {
 	struct s_node	*current;
 
-	current = malloc(sizeof(struct s_node));
+	current = malloc(sizeof(t_node));
 	current->data = a->data;
 	current->next = *b;
 	*b = current;
@@ -24,38 +24,56 @@ int	push_a(struct s_node *a, struct s_node **b)
 	return (0);
 }
 
-void	ft_free(struct s_node **b)
+void	ft_free(t_node **b)
 {
-	struct s_node	*temp;
+	t_node	*temp;
 
 	temp = *b;
-	*b = (*b)->next;
+	*b = NULL;
 	free(temp);
 }
 
-struct s_node	*push_b(struct s_node **a, struct s_node *b)
+int	push_b(t_node **a, t_node **b)
 {
-	struct s_node	*current;
-	struct s_node	*temp;
+	t_node	*current;
 
-	current = malloc(sizeof(struct s_node));
-	current->data = b->data;
-	current->next = *a;
-	*a = current;
-	if ((b)->next != NULL)
-		*b = *(b)->next;
-	else
-		ft_free(&b);
-	return (b);
+	if (*b != NULL)
+	{
+		current = malloc(sizeof(t_node));
+		current->data = (*b)->data;
+		current->next = *a;
+		*a = current;
+
+		if ((*b)->next != NULL)
+			*b = (*b)->next;
+		else
+			ft_free(b);
+	}
+	return (0);
 }
 
-int	swap_a(struct s_node *a)
+int	swap_a(t_node *a)
 {
-	int	 temp;
+	int	temp;
 
-	temp = a->data;
-	a->data = a->next->data;
-	a->next->data = temp;
+	if (a && a -> next)
+	{
+		temp = a->data;
+		a->data = a->next->data;
+		a->next->data = temp;
+	}
+	return (0);
+}
 
+int	swap_b(t_node *b)
+{
+	int	temp;
+
+	if (b && b -> next)
+	{
+		temp = b->data;
+		b->data = b->next->data;
+		b->next->data = temp;
+	}
 	return (0);
 }

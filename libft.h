@@ -6,7 +6,7 @@
 /*   By: spawar <spawar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 14:33:15 by spawar            #+#    #+#             */
-/*   Updated: 2024/05/19 18:21:42 by spawar           ###   ########.fr       */
+/*   Updated: 2024/05/24 15:57:37 by spawar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 # include <stdlib.h>
 # include <limits.h>
 
-struct s_node{
+typedef struct s_node{
 	int				data;
 	struct s_node	*next;
-};
+}	t_node;
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
@@ -56,8 +56,9 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-int		push_a(struct s_node *a, struct s_node **b);
-struct s_node		*push_b(struct s_node **a, struct s_node *b);
-int	swap_a(struct s_node *a);
+int		push_a(t_node *a, t_node **b);
+int		push_b(t_node **a, t_node **b);
+int		swap_a(t_node *a);
+int		swap_b(t_node *b);
 
 #endif
