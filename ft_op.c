@@ -6,7 +6,7 @@
 /*   By: spawar <spawar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 13:50:09 by spawar            #+#    #+#             */
-/*   Updated: 2024/05/24 15:54:23 by spawar           ###   ########.fr       */
+/*   Updated: 2024/05/24 18:45:28 by spawar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	push_a(t_node *a, t_node **b)
 {
-	struct s_node	*current;
+	t_node	*current;
 
 	current = malloc(sizeof(t_node));
 	current->data = a->data;
@@ -75,5 +75,94 @@ int	swap_b(t_node *b)
 		b->data = b->next->data;
 		b->next->data = temp;
 	}
+	return (0);
+}
+
+int	rotatea(t_node **a)
+{
+	t_node	*first_node;
+	t_node	*last_node;
+
+	first_node = *a;
+	last_node = *a;
+	while (last_node->next != NULL)
+		last_node = last_node->next;
+
+	last_node->next = first_node;
+	*a = first_node->next;
+	first_node->next = NULL;
+	return (0);
+}
+
+int	rotateb(t_node **b)
+{
+	t_node	*first_node;
+	t_node	*last_node;
+
+	first_node = *b;
+	last_node = *b;
+	while (last_node->next != NULL)
+		last_node = last_node->next;
+
+	last_node->next = first_node;
+	*b = first_node->next;
+	first_node->next = NULL;
+	return (0);
+}
+
+int	revrotatea(t_node **a)
+{
+	t_node	*temp;
+	t_node	*current;
+
+	temp = *a;
+	current = NULL;
+	while (temp->next != NULL)
+	{
+		current = temp;
+		temp = temp->next;
+	}
+	current->next = NULL;
+	temp->next = *a;
+	*a = temp;
+	return (0);
+}
+
+int	revrotateb(t_node **b)
+{
+	t_node	*temp;
+	t_node	*current;
+
+	temp = *b;
+	current = NULL;
+	while (temp->next != NULL)
+	{
+		current = temp;
+		temp = temp->next;
+	}
+	current->next = NULL;
+	temp->next = *b;
+	*b = temp;
+	return (0);
+}
+
+int	ss(t_node *a, t_node *b)
+{
+	swap_a(a);
+	swap_b(b);
+	return (0);
+}
+
+int rr(t_node *a, t_node *b)
+{
+	rotatea(&a);
+	rotateb(&b);
+	return (0);
+}
+
+int rrr(t_node *a, t_node *b)
+{
+	revrotatea(&a);
+	revrotateb(&b);
 	return (0);
 }

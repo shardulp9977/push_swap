@@ -6,7 +6,7 @@
 /*   By: spawar <spawar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 14:33:15 by spawar            #+#    #+#             */
-/*   Updated: 2024/05/24 15:57:37 by spawar           ###   ########.fr       */
+/*   Updated: 2024/05/24 18:41:37 by spawar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,12 @@ int		push_a(t_node *a, t_node **b);
 int		push_b(t_node **a, t_node **b);
 int		swap_a(t_node *a);
 int		swap_b(t_node *b);
+int		rotatea(t_node **a);
+int		rotateb(t_node **b);
+int		revrotatea(t_node **a);
+int		revrotateb(t_node **b);
+int		ss(t_node *a, t_node *b);
+int		rr(t_node *a, t_node *b);
+int		rrr(t_node *a, t_node *b);
 
 #endif
