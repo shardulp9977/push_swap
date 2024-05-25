@@ -6,7 +6,7 @@
 /*   By: spawar <spawar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 14:33:15 by spawar            #+#    #+#             */
-/*   Updated: 2024/05/24 18:41:37 by spawar           ###   ########.fr       */
+/*   Updated: 2024/05/25 16:55:33 by spawar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-int		push_a(t_node *a, t_node **b);
-int		push_b(t_node **a, t_node **b);
+int		push_b(t_node *a, t_node **b);
+int		push_a(t_node **a, t_node **b);
 int		swap_a(t_node *a);
 int		swap_b(t_node *b);
 int		rotatea(t_node **a);
@@ -65,7 +65,7 @@ int		rotateb(t_node **b);
 int		revrotatea(t_node **a);
 int		revrotateb(t_node **b);
 int		ss(t_node *a, t_node *b);
-int		rr(t_node *a, t_node *b);
-int		rrr(t_node *a, t_node *b);
+int		rr(t_node **a, t_node **b);
+int		rrr(t_node **a, t_node **b);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: spawar <spawar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 13:50:09 by spawar            #+#    #+#             */
-/*   Updated: 2024/05/24 18:45:28 by spawar           ###   ########.fr       */
+/*   Updated: 2024/05/25 16:55:29 by spawar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	push_a(t_node *a, t_node **b)
+int	push_b(t_node *a, t_node **b)
 {
 	t_node	*current;
 
@@ -33,7 +33,7 @@ void	ft_free(t_node **b)
 	free(temp);
 }
 
-int	push_b(t_node **a, t_node **b)
+int	push_a(t_node **a, t_node **b)
 {
 	t_node	*current;
 
@@ -153,16 +153,16 @@ int	ss(t_node *a, t_node *b)
 	return (0);
 }
 
-int rr(t_node *a, t_node *b)
+int rr(t_node **a, t_node **b)
 {
-	rotatea(&a);
-	rotateb(&b);
+	rotatea(a);
+	rotateb(b);
 	return (0);
 }
 
-int rrr(t_node *a, t_node *b)
+int rrr(t_node **a, t_node **b)
 {
-	revrotatea(&a);
-	revrotateb(&b);
+	revrotatea(a);
+	revrotateb(b);
 	return (0);
 }

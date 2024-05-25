@@ -6,7 +6,7 @@
 /*   By: spawar <spawar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 15:18:06 by spawar            #+#    #+#             */
-/*   Updated: 2024/05/24 18:45:34 by spawar           ###   ########.fr       */
+/*   Updated: 2024/05/25 16:55:37 by spawar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,16 +120,17 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (printf("Error"), 0);
 	//========TESTING============//
-	push_a(a, &b);
-	push_a(a, &b);
+	//push_b(a, &b);
+	//push_b(a, &b);
 	//swap_b(b);
-	//push_b(&a, &b);
+	//push_b(a, &b);
 	//b = push_b(&a, b);
-	//push_a(a, &b);
-	//rotatea(&a);
-	//rotatea(b);
+	//push_a(&a, &b);
+	rotatea(&a);
+	//rotatea(&b);
 	//revrotateb(&b);
-	rr(a, b);
+	//rr(&a, &b);
+	//ss(a,b);
 	printf("a:\t");
 	while (a != NULL)
 	{
