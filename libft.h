@@ -6,7 +6,7 @@
 /*   By: spawar <spawar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 14:33:15 by spawar            #+#    #+#             */
-/*   Updated: 2024/05/25 16:55:33 by spawar           ###   ########.fr       */
+/*   Updated: 2024/05/31 17:39:31 by spawar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-int		push_b(t_node *a, t_node **b);
+int		push_b(t_node **a, t_node **b);
 int		push_a(t_node **a, t_node **b);
 int		swap_a(t_node *a);
 int		swap_b(t_node *b);
@@ -67,5 +67,15 @@ int		revrotateb(t_node **b);
 int		ss(t_node *a, t_node *b);
 int		rr(t_node **a, t_node **b);
 int		rrr(t_node **a, t_node **b);
+int		ft_dstrlen(char **s);
+int		ft_isspace(char *s);
+int		ft_valid(char **s);
+t_node	*copy(t_node *s);
+t_node	*sort_list(t_node *lst);
+t_node	*indexing(t_node *s1, t_node *s2);
+int		ft_size(t_node *s);
+void	ft_algo(t_node **a, t_node **b);
+void	mini(t_node **a);
+void	mini5(t_node **a, t_node **b);
 
 #endif

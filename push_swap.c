@@ -6,13 +6,11 @@
 /*   By: spawar <spawar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 15:18:06 by spawar            #+#    #+#             */
-/*   Updated: 2024/05/25 16:55:37 by spawar           ###   ########.fr       */
+/*   Updated: 2024/05/31 17:37:04 by spawar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "libft.h"
 
 int	duplicates(t_node *head)
@@ -39,20 +37,6 @@ int	duplicates(t_node *head)
 	return (1);
 }
 
-int	ft_isspace(char *s)
-{
-	int	i;
-
-	i = 0;
-	while (*(s + i))
-	{
-		if (*(s + i) == 32)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
 t_node	*ft_linker(char *s, t_node *head)
 {
 	t_node	*current;
@@ -77,11 +61,8 @@ t_node	*ft_checker(char **s, int argc)
 	{
 		if (ft_strlen(s[i]) > 1 && ft_isspace(s[i]) == 1)
 		{
-			j = 0;
 			tmp = ft_split(s[i], ' ');
-			while (tmp[j] != NULL)
-				j++;
-			j = j - 1;
+			j = ft_dstrlen(tmp) - 1;
 			while (j >= 0)
 			{
 				head = ft_linker(tmp[j], head);
@@ -99,38 +80,26 @@ int	main(int argc, char **argv)
 {
 	t_node	*a;
 	t_node	*b;
-	int				i;
-	int				j;
+	t_node	*nhead;
+	int		i;
 
-	i = 1;
-	while (argv[i] != NULL)
-	{
-		j = 0;
-		while (argv[i][j] != '\0')
-		{
-			if (!((argv[i][j] >= '0' && argv[i][j] <= '9') || argv[i][j] == 32))
-				return (printf("Error"), 0);
-			j++;
-		}
-		i++;
-	}
+	i = 0;
+	if (argc < 2)
+		return (0);
+	if (ft_valid(argv) == 0)
+		return (printf("error"), 0);
 	a = ft_checker(argv, argc - 1);
 	if (duplicates(a) == 0)
 		return (printf("error"), 0);
-	if (argc == 1)
-		return (printf("Error"), 0);
-	//========TESTING============//
-	//push_b(a, &b);
-	//push_b(a, &b);
-	//swap_b(b);
-	//push_b(a, &b);
-	//b = push_b(&a, b);
-	//push_a(&a, &b);
-	rotatea(&a);
-	//rotatea(&b);
-	//revrotateb(&b);
-	//rr(&a, &b);
-	//ss(a,b);
+	nhead = copy(a);
+	nhead = sort_list(nhead);
+	a = indexing(nhead, a);
+	if (ft_size(a) <= 3)
+		mini(&a);
+	else if (ft_size(a) == 5 || ft_size(a) == 4)
+		mini5(&a, &b);
+	else
+		ft_radish(&a, &b);
 	printf("a:\t");
 	while (a != NULL)
 	{
@@ -143,7 +112,6 @@ int	main(int argc, char **argv)
 		printf("%i\t", b->data);
 		b = b->next;
 	}
-	//=======TESTING=========//
 	printf("\n");
 	return (0);
 }
